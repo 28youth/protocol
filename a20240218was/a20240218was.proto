@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+package wei.a20240218was;
+
+import "validate/validate.proto";
+option go_package = "github.com/28youth/protocol/a20240218was";
+
+message HelloRequest { string greeting = 1; }
+
+message HelloResponse {
+  int32 err_code = 1;
+  string err_msg = 2;
+  string response = 3;
+  double timestamp = 4;
+}
+
+service a20240218was_interface {
+  rpc Hello(HelloRequest) returns (HelloResponse); // @alias=/demo/Hello
+}
